@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electronics & Electrical Skills — Reporting Material</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ECEFE9;
+    --paper-2:#E2E6DC;
+    --ink:#161A17;
+    --ink-soft:#495049;
+    --panel:#1B2320;
+    --panel-2:#232D29;
+    --trace:#2F6F4E;
+    --trace-light:#4C8F68;
+    --copper:#BE7C4D;
+    --copper-light:#D89A6C;
+    --amber:#E2A33D;
+    --line:#C8CFC1;
+    --white:#F7F8F4;
+    --radius:10px;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:var(--display); margin:0; color:var(--ink); letter-spacing:-0.01em;}
+  p{margin:0 0 14px 0;}
+  a{color:inherit;}
+  ::selection{background:var(--amber); color:var(--panel);}
+
+  a:focus-visible, button:focus-visible{outline:2px solid var(--copper); outline-offset:3px;}
+
+  /* ---------- NAVBAR ---------- */
+  .navbar{
+    position:sticky; top:0; z-index:100;
+    background:var(--panel);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner{
+    max-width:1180px; margin:0 auto; padding:0 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    height:64px;
+  }
+  .nav-brand{
+    display:flex; align-items:center; gap:10px;
+    color:var(--white); text-decoration:none;
+    font-family:var(--display); font-weight:600; font-size:16px;
+    letter-spacing:0.02em;
+  }
+  .nav-brand .dot{
+    width:10px; height:10px; border-radius:50%;
+    background:var(--trace-light);
+    box-shadow:0 0 0 3px rgba(76,143,104,0.25);
+    flex-shrink:0;
+  }
+  .nav-brand .sub{ color: rgba(247,248,244,0.5); font-weight:400; font-family:var(--mono); font-size:11px; display:block;}
+  .nav-links{
+    display:flex; align-items:center; gap:4px;
+    list-style:none; margin:0; padding:0;
+  }
+  .nav-links a{
+    text-decoration:none; color:rgba(247,248,244,0.72);
+    font-size:13.5px; font-weight:500;
+    padding:9px 14px; border-radius:6px;
+    transition:background 0.15s, color 0.15s;
+    font-family:var(--body);
+    white-space:nowrap;
+  }
+  .nav-links a:hover{ background:rgba(255,255,255,0.06); color:var(--white); }
+  .nav-links a.active{ color:var(--white); background:rgba(47,111,78,0.35); }
+  .nav-toggle{
+    display:none; background:none; border:none; cursor:pointer;
+    width:40px; height:40px; align-items:center; justify-content:center;
+    border-radius:6px;
+  }
+  .nav-toggle:hover{ background:rgba(255,255,255,0.08); }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after{
+    content:''; display:block; width:20px; height:2px; background:var(--white);
+    position:relative; transition:transform 0.2s, opacity 0.2s;
+  }
+  .nav-toggle span::before{ position:absolute; top:-6px; }
+  .nav-toggle span::after{ position:absolute; top:6px; }
+  .nav-toggle.open span{ background:transparent; }
+  .nav-toggle.open span::before{ top:0; transform:rotate(45deg); background:var(--white); }
+  .nav-toggle.open span::after{ top:0; transform:rotate(-45deg); background:var(--white); }
+
+  @media (max-width:860px){
+    .nav-links{
+      position:fixed; top:64px; left:0; right:0;
+      background:var(--panel);
+      flex-direction:column; align-items:stretch;
+      padding:8px 16px 20px;
+      gap:2px;
+      transform:translateY(-8px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.18s, transform 0.18s;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+    .nav-links.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+    .nav-links a{ padding:12px 10px; }
+    .nav-toggle{ display:flex; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(47,111,78,0.18), transparent 55%),
+      radial-gradient(ellipse at 90% 0%, rgba(190,124,77,0.14), transparent 50%),
+      var(--panel);
+    color:var(--white);
+    padding:70px 20px 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-inner{ max-width:1180px; margin:0 auto; position:relative; z-index:2; }
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--trace-light); margin-bottom:18px; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:22px; height:1px; background:var(--trace-light); display:inline-block; }
+  .hero h1{
+    font-size:clamp(32px, 5.2vw, 58px);
+    line-height:1.04; font-weight:700; color:var(--white);
+    max-width:820px;
+  }
+  .hero .accent{ color:var(--copper-light); }
+  .hero-desc{
+    max-width:600px; color:rgba(247,248,244,0.68); font-size:16px; margin-top:22px;
+  }
+  .plate-row{
+    display:flex; flex-wrap:wrap; gap:14px; margin-top:36px;
+  }
+  .plate{
+    background:var(--panel-2);
+    border:1px solid rgba(255,255,255,0.09);
+    border-radius:8px;
+    padding:14px 18px;
+    min-width:230px;
+    position:relative;
+  }
+  .plate::before, .plate::after{
+    content:''; position:absolute; width:5px; height:5px; border-radius:50%;
+    background:rgba(255,255,255,0.18); top:7px;
+  }
+  .plate::before{ left:7px; }
+  .plate::after{ right:7px; }
+  .plate .role{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--copper-light); margin-bottom:5px;
+  }
+  .plate .name{ font-family:var(--display); font-weight:600; font-size:15px; color:var(--white); }
+
+  /* ---------- MAIN LAYOUT ---------- */
+  main{ max-width:1180px; margin:0 auto; padding:0 20px; }
+
+  .intro-block{
+    padding:56px 0 20px;
+    max-width:760px;
+  }
+  .intro-block h2{ font-size:26px; margin-bottom:14px; }
+  .intro-block p{ color:var(--ink-soft); font-size:15.5px; }
+
+  /* ---------- SECTION w/ trace rail ---------- */
+  .report-section{
+    position:relative;
+    padding:50px 0 10px 0;
+    scroll-margin-top:80px;
+  }
+  .section-head{
+    display:flex; gap:20px; align-items:flex-start;
+    margin-bottom:8px;
+  }
+  .trace-node{
+    flex-shrink:0;
+    width:46px; height:46px; border-radius:50%;
+    background:var(--panel);
+    border:2px solid var(--trace);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--mono); font-weight:600; color:var(--trace-light); font-size:15px;
+    position:relative;
+  }
+  .trace-line{
+    position:absolute; left:23px; top:46px; bottom:-30px; width:2px;
+    background:repeating-linear-gradient(var(--line), var(--line) 6px, transparent 6px, transparent 12px);
+  }
+  .report-section:last-of-type .trace-line{ display:none; }
+  .section-title-wrap{ padding-top:4px; }
+  .section-kicker{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--trace); margin-bottom:4px;
+  }
+  .section-head h2{ font-size:clamp(22px,3.4vw,32px); }
+  .presenter-tag{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:10px; font-size:13.5px; color:var(--ink-soft);
+    background:var(--paper-2); border:1px solid var(--line);
+    padding:6px 12px; border-radius:20px;
+  }
+  .presenter-tag b{ color:var(--ink); font-family:var(--display); font-weight:600; }
+
+  .section-body{
+    margin-left:66px;
+    padding-bottom:30px;
+  }
+  @media (max-width:600px){
+    .section-body{ margin-left:0; padding-left:0; }
+    .trace-line{ left:23px; }
+  }
+
+  .section-body h3{
+    font-size:19px; color:var(--ink); margin-top:34px; margin-bottom:12px;
+    padding-bottom:8px; border-bottom:1px solid var(--line);
+  }
+  .section-body h4.subhead{
+    font-size:16px; font-weight:600; color:var(--copper); margin:26px 0 10px;
+    font-family:var(--display);
+  }
+
+  .lede{ font-size:15.5px; color:var(--ink-soft); max-width:760px; }
+
+  ul.tool-list{ list-style:none; margin:0 0 8px 0; padding:0; max-width:780px; }
+  ul.tool-list li{
+    position:relative; padding-left:20px; margin-bottom:9px; font-size:14.8px; color:var(--ink);
+  }
+  ul.tool-list li::before{
+    content:''; position:absolute; left:0; top:9px; width:6px; height:6px;
+    background:var(--trace); border-radius:1px; transform:rotate(45deg);
+  }
+  ul.tool-list li b{ color:var(--ink); }
+  ul.tool-list li .label{ color:var(--copper); font-weight:600; }
+
+  ol.steps{ counter-reset:step; list-style:none; margin:0; padding:0; max-width:780px; }
+  ol.steps li{
+    counter-increment:step;
+    position:relative; padding:10px 0 10px 44px; margin-bottom:2px; font-size:14.8px;
+    border-bottom:1px dashed var(--line);
+  }
+  ol.steps li:last-child{ border-bottom:none; }
+  ol.steps li::before{
+    content:counter(step);
+    position:absolute; left:0; top:9px;
+    width:28px; height:28px; border-radius:50%;
+    background:var(--panel); color:var(--trace-light);
+    font-family:var(--mono); font-size:12.5px; font-weight:600;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .card-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr));
+    gap:14px; margin:18px 0 8px;
+  }
+  .spec-card{
+    background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+    padding:16px 16px 14px; position:relative;
+  }
+  .spec-card::before, .spec-card::after{
+    content:''; position:absolute; width:5px; height:5px; border-radius:50%;
+    background:var(--line); top:8px;
+  }
+  .spec-card::before{ left:8px; } .spec-card::after{ right:8px; }
+  .spec-card h5{ font-family:var(--display); font-size:14.5px; margin-bottom:6px; color:var(--ink); }
+  .spec-card p{ font-size:13.2px; color:var(--ink-soft); margin:0; }
+
+  .data-table-wrap{ overflow-x:auto; margin:18px 0 10px; border:1px solid var(--line); border-radius:var(--radius); }
+  table.data-table{ width:100%; border-collapse:collapse; min-width:520px; font-size:13.6px; }
+  table.data-table thead th{
+    background:var(--panel); color:var(--white); text-align:left;
+    padding:11px 14px; font-family:var(--mono); font-weight:500; font-size:12px;
+    letter-spacing:0.03em; text-transform:uppercase;
+  }
+  table.data-table tbody td{
+    padding:11px 14px; border-top:1px solid var(--line); color:var(--ink);
+    background:var(--white);
+  }
+  table.data-table tbody tr:nth-child(even) td{ background:var(--paper-2); }
+  table.data-table td.reading{ font-family:var(--mono); }
+  .sign-good{ color:var(--trace); font-weight:600; }
+  .sign-bad{ color:#B4462E; font-weight:600; }
+
+  .callout{
+    border-radius:var(--radius);
+    padding:18px 20px;
+    margin:22px 0;
+    border:1px solid rgba(226,163,61,0.4);
+    background:
+      repeating-linear-gradient(135deg, rgba(226,163,61,0.07) 0 10px, rgba(226,163,61,0.02) 10px 20px),
+      #FFFBF2;
+  }
+  .callout-head{
+    display:flex; align-items:center; gap:8px; margin-bottom:10px;
+    font-family:var(--mono); font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#8A5A12; font-weight:600;
+  }
+  .callout ul{ margin:0; padding-left:18px; }
+  .callout li{ font-size:13.8px; margin-bottom:6px; color:#4a3a1c; }
+  .callout li:last-child{ margin-bottom:0; }
+
+  .summary-box{
+    background:var(--panel); color:var(--white);
+    border-radius:var(--radius); padding:20px 22px; margin:26px 0 40px;
+    position:relative; overflow:hidden;
+  }
+  .summary-box::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--trace-light);
+  }
+  .summary-box .label{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--trace-light); margin-bottom:8px;
+  }
+  .summary-box p{ margin:0; color:rgba(247,248,244,0.85); font-size:14.3px; }
+
+  footer{
+    background:var(--panel); color:rgba(247,248,244,0.5);
+    padding:32px 20px; margin-top:40px;
+    font-size:12.5px; text-align:center;
+    font-family:var(--mono);
+  }
+  footer span{ color:var(--trace-light); }
+
+  @media (max-width:600px){
+    .hero{ padding:52px 16px 44px; }
+    .plate-row{ gap:10px; }
+    .plate{ min-width:0; flex:1 1 100%; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#top" class="nav-brand"><span class="dot"></span><span>ELECTRONICS &amp; ELECTRICAL SKILLS<span class="sub">SysAdmin &amp; Maintenance — BSIT 3</span></span></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#tools" class="nav-link">Hand Tools</a></li>
+      <li><a href="#wiring" class="nav-link">Wiring &amp; Termination</a></li>
+      <li><a href="#testing" class="nav-link">Testing Components</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="eyebrow">System Administration and Maintenance — Reporting Material</div>
+    <h1>Electronics &amp; <span class="accent">Electrical Skills</span></h1>
+    <p class="hero-desc">A practical field guide to the hand tools, wiring methods, and diagnostic techniques every IT professional relies on for hardware and infrastructure maintenance.</p>
+    <div class="plate-row">
+      <div class="plate">
+        <div class="role">01 · Use Hand Tools</div>
+        <div class="name">Adrian Apellanes</div>
+      </div>
+      <div class="plate">
+        <div class="role">02 · Terminate &amp; Connect Wiring</div>
+        <div class="name">Vemark Apostadero</div>
+      </div>
+      <div class="plate">
+        <div class="role">03 · Test Electronic Components</div>
+        <div class="name">Alken Jones Steven Bacsarpa</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <div class="intro-block">
+    <h2>Why this matters</h2>
+    <p>Every system administrator eventually steps away from the terminal and toward the hardware — reseating a card, terminating a cable run, or diagnosing a dead power supply. These three sessions walk through the manual tools, wiring practices, and component-testing skills that make that kind of hands-on troubleshooting safe and reliable.</p>
+  </div>
+
+  <!-- ============ SECTION 1 ============ -->
+  <section class="report-section" id="tools">
+    <div class="section-head">
+      <div class="trace-node">01<div class="trace-line"></div></div>
+      <div class="section-title-wrap">
+        <div class="section-kicker">Section One</div>
+        <h2>Use Hand Tools</h2>
+        <div class="presenter-tag">Presented by <b>Adrian Apellanes</b></div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <p class="lede">Hand tools are the most basic, most frequently used equipment in electronics and electrical work. Unlike power tools, they run on manual effort alone — reliable, portable, and essential for everyday IT tasks like assembling computers, repairing devices, and wiring simple circuits.</p>
+
+      <h3>Common Hand Tools</h3>
+
+      <h4 class="subhead">1. Screwdrivers (Flathead &amp; Phillips)</h4>
+      <ul class="tool-list">
+        <li>Tighten or loosen screws holding computer casings, motherboards, and electrical panels together.</li>
+        <li>Come in different sizes and tip types — flathead for slotted screws, Phillips for cross-head screws.</li>
+        <li>Magnetized tips help with small screws in tight spaces, like inside a laptop.</li>
+        <li><span class="label">Proper use:</span> match the screwdriver to the screw head to avoid stripping it; apply steady, downward pressure while turning.</li>
+        <li><span class="label">Application:</span> opening computer cases, replacing hard drives, mounting electrical outlets.</li>
+      </ul>
+
+      <h4 class="subhead">2. Pliers (Long-nose, Combination, Diagonal Cutting)</h4>
+      <ul class="tool-list">
+        <li>Long-nose pliers grip small components and reach into tight spaces.</li>
+        <li>Combination pliers grip, bend, and cut wires of moderate thickness.</li>
+        <li>Diagonal cutters are used specifically for cutting wires and component leads.</li>
+        <li><span class="label">Proper use:</span> use the correct plier type for the task; never use pliers as a hammer or to cut hardened material.</li>
+        <li><span class="label">Application:</span> bending component leads, holding wires during soldering, trimming excess wire after termination.</li>
+      </ul>
+
+      <h4 class="subhead">3. Wire Strippers</h4>
+      <ul class="tool-list">
+        <li>Remove plastic or rubber insulation from wires without damaging the copper conductor inside.</li>
+        <li>Available in manual (adjustable notch) and automatic (self-adjusting) types.</li>
+        <li><span class="label">Proper use:</span> select the notch that matches the wire gauge (AWG size), squeeze gently, and pull to remove insulation cleanly.</li>
+        <li><span class="label">Application:</span> preparing wires for splicing, terminal connections, or network cable (UTP) preparation.</li>
+      </ul>
+
+      <h4 class="subhead">4. Multimeter</h4>
+      <ul class="tool-list">
+        <li>A multi-purpose testing instrument that measures voltage (AC/DC), current, resistance, and continuity.</li>
+        <li>Available as analog (needle display) or digital (numeric display, more common today).</li>
+        <li><span class="label">Proper use:</span> set the correct measurement mode and range before testing; always confirm test leads are in the correct ports.</li>
+        <li><span class="label">Application:</span> checking power supply output, testing cable continuity, diagnosing faulty components.</li>
+      </ul>
+
+      <h4 class="subhead">5. Soldering Iron</h4>
+      <ul class="tool-list">
+        <li>A heated tool that melts solder, creating a permanent, low-resistance bond between components and circuit boards.</li>
+        <li>Typically rated between 15–60 watts depending on the application.</li>
+        <li><span class="label">Proper use:</span> let the iron reach temperature, tin the tip with a little solder, and heat the joint briefly before feeding solder in.</li>
+        <li><span class="label">Application:</span> repairing circuit boards, attaching connectors, joining wires permanently.</li>
+      </ul>
+
+      <h4 class="subhead">Other Supporting Hand Tools</h4>
+      <div class="card-grid">
+        <div class="spec-card"><h5>Tweezers</h5><p>Handle very small components without contaminating them with skin oils.</p></div>
+        <div class="spec-card"><h5>Anti-static wrist strap</h5><p>Grounds the technician to prevent electrostatic discharge (ESD) damage to sensitive chips.</p></div>
+        <div class="spec-card"><h5>Crimping tool</h5><p>Attaches connectors — like RJ45 — to a cable end by compressing a metal contact onto the wire.</p></div>
+        <div class="spec-card"><h5>Allen wrench (hex key)</h5><p>Tightens hexagonal-socket screws found in equipment racks and enclosures.</p></div>
+        <div class="spec-card"><h5>Desoldering pump</h5><p>Removes melted solder to detach components or correct a mistake — also called a "solder sucker."</p></div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-head">⚠ Safety Tips</div>
+        <ul>
+          <li>Always disconnect power before working on any electrical or electronic device.</li>
+          <li>Use insulated tools when working near live circuits.</li>
+          <li>Wear an anti-static wrist strap when handling sensitive components (motherboards, RAM, ICs).</li>
+          <li>Never point diagonal cutters or strippers toward yourself or others.</li>
+          <li>Keep the soldering iron in its stand when not in use, and never touch the heated tip.</li>
+          <li>Inspect tools regularly for damage — cracked handles, worn tips — and replace as needed.</li>
+          <li>Work in a well-ventilated area when soldering to avoid inhaling flux fumes.</li>
+        </ul>
+      </div>
+
+      <h4 class="subhead">Real-World Applications in IT/Electronics Maintenance</h4>
+      <ul class="tool-list">
+        <li>Assembling and upgrading desktop computers — installing RAM, drives, expansion cards.</li>
+        <li>Repairing power adapters, cables, and connectors.</li>
+        <li>Building and terminating network cables for LAN installation.</li>
+        <li>Performing preventive maintenance on servers and networking equipment.</li>
+        <li>Diagnosing hardware issues with a multimeter before replacing parts.</li>
+      </ul>
+
+      <div class="summary-box">
+        <div class="label">Summary</div>
+        <p>Hand tools form the backbone of practical electronics and IT maintenance work. Mastery of tools like screwdrivers, pliers, wire strippers, multimeters, and soldering irons — combined with strict safety habits — lets technicians repair and install with confidence and precision.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 2 ============ -->
+  <section class="report-section" id="wiring">
+    <div class="section-head">
+      <div class="trace-node">02<div class="trace-line"></div></div>
+      <div class="section-title-wrap">
+        <div class="section-kicker">Section Two</div>
+        <h2>Terminate &amp; Connect Electrical Wiring and Electronic Circuits</h2>
+        <div class="presenter-tag">Presented by <b>Vemark Apostadero</b></div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <p class="lede">Termination is the process of properly ending or joining a wire so it can be safely and reliably connected to a device, terminal, or another wire. Poor termination is one of the leading causes of electrical failures, overheating, and equipment damage.</p>
+
+      <h3>Common Wire Termination Methods</h3>
+
+      <h4 class="subhead">1. Soldering</h4>
+      <ul class="tool-list">
+        <li>Joins wires or components with melted solder, creating a strong, permanent, highly conductive bond.</li>
+        <li>Best suited for permanent connections on circuit boards and delicate electronic assemblies.</li>
+        <li><span class="label">Advantages:</span> very reliable, resistant to vibration once cooled.</li>
+        <li><span class="label">Limitations:</span> requires skill and heat control; not ideal for connections that need to be undone often.</li>
+      </ul>
+
+      <h4 class="subhead">2. Crimping</h4>
+      <ul class="tool-list">
+        <li>Uses a crimping tool to mechanically compress a metal connector — lug, ferrule, or terminal — onto a stripped wire end.</li>
+        <li>Common in automotive wiring, network cabling (RJ45 connectors), and industrial control panels.</li>
+        <li><span class="label">Advantages:</span> fast, no heat required, consistent results when done correctly.</li>
+        <li><span class="label">Limitations:</span> needs the correct connector size and crimping die; a poor crimp can loosen over time.</li>
+      </ul>
+
+      <h4 class="subhead">3. Wire Nuts (Twist-on Connectors)</h4>
+      <ul class="tool-list">
+        <li>Plastic caps with an internal spring that twist onto two or more stripped wire ends to join them.</li>
+        <li>Widely used in residential and commercial electrical wiring, such as junction boxes.</li>
+        <li><span class="label">Advantages:</span> quick, tool-free aside from stripping, reusable and easy to inspect.</li>
+        <li><span class="label">Limitations:</span> not suitable for high-vibration environments; must be sized correctly for the wire gauge and count.</li>
+      </ul>
+
+      <h4 class="subhead">4. Terminal Blocks</h4>
+      <ul class="tool-list">
+        <li>Modular blocks with screw or spring-clamp connections that let multiple wires connect in a fixed, organized position.</li>
+        <li>Common in control panels, power distribution boards, and equipment enclosures.</li>
+        <li><span class="label">Advantages:</span> organized, easy to modify or replace individual connections, supports labeling.</li>
+        <li><span class="label">Limitations:</span> screw terminals need periodic re-tightening to prevent loosening.</li>
+      </ul>
+
+      <h3>Comparison of Termination Methods</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Method</th><th>Best Use Case</th><th>Tool Required</th></tr></thead>
+          <tbody>
+            <tr><td>Soldering</td><td>Circuit boards, permanent electronic joints</td><td>Soldering iron, solder</td></tr>
+            <tr><td>Crimping</td><td>Connectors, network cables, automotive wiring</td><td>Crimping tool</td></tr>
+            <tr><td>Wire Nuts</td><td>Household / junction box wiring</td><td>Wire stripper only</td></tr>
+            <tr><td>Terminal Blocks</td><td>Control panels, distribution boards</td><td>Screwdriver</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Step-by-Step Procedure</h3>
+      <ol class="steps">
+        <li>Turn off and lock out the power source. Confirm zero voltage using a multimeter or voltage tester.</li>
+        <li>Measure and cut the wire to the required length using cutting pliers.</li>
+        <li>Strip the insulation from the wire end, exposing about 6–10 mm of bare copper.</li>
+        <li>Select the appropriate termination method — solder, crimp connector, wire nut, or terminal block — based on the application.</li>
+        <li>Join the wire: solder and let cool, crimp firmly with the correct die, twist on the wire nut until snug, or insert into the terminal block and tighten the screw.</li>
+        <li>Inspect the connection for tightness, exposed copper, and proper insulation coverage.</li>
+        <li>Test continuity and proper connection with a multimeter before restoring power.</li>
+        <li>Restore power and verify correct operation of the circuit or device.</li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-head">⚠ Safety Standards to Follow</div>
+        <ul>
+          <li>Always de-energize and lock out/tag out (LOTO) circuits before working on them.</li>
+          <li>Match wire gauge and connector type to the current rating of the circuit.</li>
+          <li>Never leave exposed copper conductors uninsulated after termination.</li>
+          <li>Use insulating tape or heat-shrink tubing to cover soldered or spliced joints.</li>
+          <li>Follow the Philippine Electrical Code (PEC) or applicable local wiring standards.</li>
+          <li>Do not overload terminal blocks or wire nuts beyond their rated wire capacity.</li>
+          <li>Label wires and terminals clearly to avoid confusion during future maintenance.</li>
+        </ul>
+      </div>
+
+      <div class="summary-box">
+        <div class="label">Summary</div>
+        <p>Proper termination and connection — whether by soldering, crimping, wire nuts, or terminal blocks — ensures safe, reliable, long-lasting electrical and electronic connections. A consistent procedure plus strict safety standards prevents equipment damage, hazards, and costly downtime.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECTION 3 ============ -->
+  <section class="report-section" id="testing">
+    <div class="section-head">
+      <div class="trace-node">03<div class="trace-line"></div></div>
+      <div class="section-title-wrap">
+        <div class="section-kicker">Section Three</div>
+        <h2>Test Electronic Components</h2>
+        <div class="presenter-tag">Presented by <b>Alken Jones Steven Bacsarpa</b></div>
+      </div>
+    </div>
+
+    <div class="section-body">
+      <p class="lede">Testing electronic components is a critical diagnostic skill — it tells a technician whether a component is still good or has failed, before any part gets replaced. The multimeter is the primary tool for this, measuring resistance, voltage, and continuity, often with a dedicated diode-test mode.</p>
+
+      <h3>Testing Common Components</h3>
+
+      <h4 class="subhead">1. Resistors</h4>
+      <ul class="tool-list">
+        <li><b>Function:</b> limits or controls the flow of electric current in a circuit.</li>
+        <li><span class="label">How to test:</span> set the multimeter to resistance (Ω) mode, remove the resistor from the circuit (or at least one leg), and place the probes across its leads.</li>
+        <li><span class="label">Working:</span> reading is close to the rated value from its color code, within tolerance.</li>
+        <li><span class="label">Faulty:</span> reading is infinite (open/burned out) or far from the rated value.</li>
+      </ul>
+
+      <h4 class="subhead">2. Capacitors</h4>
+      <ul class="tool-list">
+        <li><b>Function:</b> stores and releases electrical energy; smooths voltage in power supplies.</li>
+        <li><span class="label">How to test:</span> discharge the capacitor first, then use capacitance mode if available, or resistance mode to observe charging behavior.</li>
+        <li><span class="label">Working:</span> resistance reading starts low and climbs toward infinity as it charges; on capacitance mode, the value matches its rating.</li>
+        <li><span class="label">Faulty:</span> zero ohms (shorted), infinite with no charging (open), or a bulging/leaking case.</li>
+      </ul>
+
+      <h4 class="subhead">3. Diodes</h4>
+      <ul class="tool-list">
+        <li><b>Function:</b> allows current to flow in only one direction.</li>
+        <li><span class="label">How to test:</span> use diode-test mode; red probe on the anode, black on the cathode, then reverse the probes.</li>
+        <li><span class="label">Working:</span> shows a 0.5–0.7V drop in one direction (forward bias), no reading ("OL") in reverse.</li>
+        <li><span class="label">Faulty:</span> a reading in both directions (shorted), or no reading in either direction (open).</li>
+      </ul>
+
+      <h4 class="subhead">4. Transistors</h4>
+      <ul class="tool-list">
+        <li><b>Function:</b> acts as a switch or amplifier for electronic signals.</li>
+        <li><span class="label">How to test:</span> in diode-test mode, check the base-emitter and base-collector junctions like two back-to-back diodes.</li>
+        <li><span class="label">Working:</span> each junction shows a normal forward drop in one direction only, like a diode.</li>
+        <li><span class="label">Faulty:</span> a junction reads shorted (zero both ways) or open (no reading either way).</li>
+      </ul>
+
+      <h4 class="subhead">5. Fuses</h4>
+      <ul class="tool-list">
+        <li><b>Function:</b> protects a circuit by breaking the connection when current exceeds a safe level.</li>
+        <li><span class="label">How to test:</span> continuity or resistance mode, probes on each end of the fuse.</li>
+        <li><span class="label">Working:</span> shows continuity — a beep and/or near-zero resistance.</li>
+        <li><span class="label">Faulty:</span> no continuity (infinite resistance) — the fuse has blown.</li>
+      </ul>
+
+      <h3>Quick Reference: Working vs. Faulty</h3>
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Component</th><th>Working Sign</th><th>Faulty Sign</th></tr></thead>
+          <tbody>
+            <tr><td>Resistor</td><td class="reading sign-good">≈ rated value</td><td class="reading sign-bad">Open / far off rated value</td></tr>
+            <tr><td>Capacitor</td><td class="reading sign-good">Charges gradually / matches rating</td><td class="reading sign-bad">0 Ω shorted, or open + bulging case</td></tr>
+            <tr><td>Diode</td><td class="reading sign-good">Drop one direction only</td><td class="reading sign-bad">Reads both ways, or neither</td></tr>
+            <tr><td>Transistor</td><td class="reading sign-good">Diode-like B-E / B-C drop</td><td class="reading sign-bad">Shorted or open junctions</td></tr>
+            <tr><td>Fuse</td><td class="reading sign-good">Continuity (beeps)</td><td class="reading sign-bad">No continuity (blown)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Practical Testing Procedure</h3>
+      <ol class="steps">
+        <li>Power off and discharge the circuit or device before testing — capacitors especially should be safely discharged.</li>
+        <li>Visually inspect the component for obvious damage: burn marks, bulging, cracks, discoloration.</li>
+        <li>Desolder or lift at least one leg of the component if an isolated reading is needed.</li>
+        <li>Select the correct multimeter mode — resistance, capacitance, diode test, or continuity — for the component.</li>
+        <li>Connect the probes correctly, noting polarity for diodes, transistors, and polarized capacitors.</li>
+        <li>Record and compare the reading against the expected or rated value.</li>
+        <li>Conclude whether the component is working, degraded, or faulty, and replace as needed.</li>
+      </ol>
+
+      <div class="callout">
+        <div class="callout-head">⚠ Safety Tips</div>
+        <ul>
+          <li>Always discharge capacitors before testing — they can retain dangerous voltage even when unpowered.</li>
+          <li>Set the multimeter to the correct mode before connecting probes, to avoid damaging the meter or circuit.</li>
+          <li>Never test components while they're connected to a live power source.</li>
+          <li>Handle components by the body, not the leads, to avoid ESD damage or bent pins.</li>
+          <li>Double-check probe polarity on diodes and electrolytic capacitors.</li>
+          <li>Use a fresh multimeter battery and good-quality probes for accurate readings.</li>
+        </ul>
+      </div>
+
+      <div class="summary-box">
+        <div class="label">Summary</div>
+        <p>Testing electronic components with a multimeter is an essential troubleshooting skill — it lets technicians quickly identify faulty resistors, capacitors, diodes, transistors, and fuses. Recognizing the clear signs of working versus faulty parts keeps diagnosis accurate and avoids unnecessary replacements.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>SysAdmin &amp; Maintenance</span> · Electronics &amp; Electrical Skills Reporting Material · BSIT 3rd Year
+</footer>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('.nav-link').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', false);
+    });
+  });
+
+  const sections = document.querySelectorAll('.report-section');
+  const links = document.querySelectorAll('.nav-link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        links.forEach(l => l.classList.remove('active'));
+        const match = document.querySelector('.nav-link[href="#' + entry.target.id + '"]');
+        if(match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
