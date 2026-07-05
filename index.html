@@ -230,6 +230,19 @@
     font-size:16px; font-weight:600; color:var(--copper); margin:26px 0 10px;
     font-family:var(--display);
   }
+  .tool-photo{
+    margin:10px 0 14px; border-radius:var(--radius); overflow:hidden;
+    border:1px solid var(--line); max-width:300px; background:var(--white);
+  }
+  .tool-photo img{ width:100%; height:190px; object-fit:cover; display:block; }
+  .tool-photo figcaption{
+    font-size:10px; color:var(--ink-soft); padding:5px 9px; margin:0;
+    font-family:var(--mono); background:var(--paper-2); border-top:1px solid var(--line);
+  }
+  .card-photo{
+    width:100%; height:110px; object-fit:cover; border-radius:8px;
+    margin-bottom:10px; border:1px solid var(--line); display:block;
+  }
 
   .lede{ font-size:15.5px; color:var(--ink-soft); max-width:760px; }
 
@@ -398,7 +411,7 @@
 
       <h3>Common Hand Tools</h3>
 
-      <h4 class="subhead">1. Screwdrivers (Flathead &amp; Phillips)</h4>
+      <h4 class="subhead">1. Screwdrivers (Flathead &amp; Phillips)</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/PHILLIPS_screwdriver_and_screw.JPG" alt="Phillips and flathead screwdrivers" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li>Tighten or loosen screws holding computer casings, motherboards, and electrical panels together.</li>
         <li>Come in different sizes and tip types — flathead for slotted screws, Phillips for cross-head screws.</li>
@@ -407,7 +420,7 @@
         <li><span class="label">Application:</span> opening computer cases, replacing hard drives, mounting electrical outlets.</li>
       </ul>
 
-      <h4 class="subhead">2. Pliers (Long-nose, Combination, Diagonal Cutting)</h4>
+      <h4 class="subhead">2. Pliers (Long-nose, Combination, Diagonal Cutting)</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/IKEA_combination_pliers.jpg" alt="Combination pliers" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li>Long-nose pliers grip small components and reach into tight spaces.</li>
         <li>Combination pliers grip, bend, and cut wires of moderate thickness.</li>
@@ -416,7 +429,7 @@
         <li><span class="label">Application:</span> bending component leads, holding wires during soldering, trimming excess wire after termination.</li>
       </ul>
 
-      <h4 class="subhead">3. Wire Strippers</h4>
+      <h4 class="subhead">3. Wire Strippers</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Wire_stripper_amtech_B4285.JPG" alt="Wire stripper tool" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li>Remove plastic or rubber insulation from wires without damaging the copper conductor inside.</li>
         <li>Available in manual (adjustable notch) and automatic (self-adjusting) types.</li>
@@ -424,7 +437,7 @@
         <li><span class="label">Application:</span> preparing wires for splicing, terminal connections, or network cable (UTP) preparation.</li>
       </ul>
 
-      <h4 class="subhead">4. Multimeter</h4>
+      <h4 class="subhead">4. Multimeter</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Digital_Multimeter_Aka.jpg" alt="Digital multimeter" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li>A multi-purpose testing instrument that measures voltage (AC/DC), current, resistance, and continuity.</li>
         <li>Available as analog (needle display) or digital (numeric display, more common today).</li>
@@ -432,7 +445,7 @@
         <li><span class="label">Application:</span> checking power supply output, testing cable continuity, diagnosing faulty components.</li>
       </ul>
 
-      <h4 class="subhead">5. Soldering Iron</h4>
+      <h4 class="subhead">5. Soldering Iron</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Soldering_Iron.jpg" alt="Soldering iron" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li>A heated tool that melts solder, creating a permanent, low-resistance bond between components and circuit boards.</li>
         <li>Typically rated between 15–60 watts depending on the application.</li>
@@ -442,11 +455,11 @@
 
       <h4 class="subhead">Other Supporting Hand Tools</h4>
       <div class="card-grid">
-        <div class="spec-card"><h5>Tweezers</h5><p>Handle very small components without contaminating them with skin oils.</p></div>
-        <div class="spec-card"><h5>Anti-static wrist strap</h5><p>Grounds the technician to prevent electrostatic discharge (ESD) damage to sensitive chips.</p></div>
-        <div class="spec-card"><h5>Crimping tool</h5><p>Attaches connectors — like RJ45 — to a cable end by compressing a metal contact onto the wire.</p></div>
-        <div class="spec-card"><h5>Allen wrench (hex key)</h5><p>Tightens hexagonal-socket screws found in equipment racks and enclosures.</p></div>
-        <div class="spec-card"><h5>Desoldering pump</h5><p>Removes melted solder to detach components or correct a mistake — also called a "solder sucker."</p></div>
+        <div class="spec-card"><img class="card-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Tweezers.jpg" alt="Tweezers" loading="lazy"><h5>Tweezers</h5><p>Handle very small components without contaminating them with skin oils.</p></div>
+        <div class="spec-card"><img class="card-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Antistatic_wrist_strap.jpg" alt="Anti-static wrist strap" loading="lazy"><h5>Anti-static wrist strap</h5><p>Grounds the technician to prevent electrostatic discharge (ESD) damage to sensitive chips.</p></div>
+        <div class="spec-card"><img class="card-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Crimping_tool1.jpg" alt="Crimping tool" loading="lazy"><h5>Crimping tool</h5><p>Attaches connectors — like RJ45 — to a cable end by compressing a metal contact onto the wire.</p></div>
+        <div class="spec-card"><img class="card-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Allen_keys.jpg" alt="Allen keys (hex keys)" loading="lazy"><h5>Allen wrench (hex key)</h5><p>Tightens hexagonal-socket screws found in equipment racks and enclosures.</p></div>
+        <div class="spec-card"><img class="card-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Solder_sucker2.JPG" alt="Desoldering pump (solder sucker)" loading="lazy"><h5>Desoldering pump</h5><p>Removes melted solder to detach components or correct a mistake — also called a "solder sucker."</p></div>
       </div>
 
       <div class="callout">
@@ -494,7 +507,7 @@
 
       <h3>Common Wire Termination Methods</h3>
 
-      <h4 class="subhead">1. Soldering</h4>
+      <h4 class="subhead">1. Soldering</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Soldering%20a%200805.jpg" alt="Soldering a small electronic component (color photo)" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li>Joins wires or components with melted solder, creating a strong, permanent, highly conductive bond.</li>
         <li>Best suited for permanent connections on circuit boards and delicate electronic assemblies.</li>
@@ -502,7 +515,7 @@
         <li><span class="label">Limitations:</span> requires skill and heat control; not ideal for connections that need to be undone often.</li>
       </ul>
 
-      <h4 class="subhead">2. Crimping</h4>
+      <h4 class="subhead">2. Crimping</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Crimper%20Thunderbird%209%20ESC%20Butt%20Connectors%20Motor%20and%20Wire%20Strippers.JPG" alt="Crimped butt connectors with crimping tool" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li>Uses a crimping tool to mechanically compress a metal connector — lug, ferrule, or terminal — onto a stripped wire end.</li>
         <li>Common in automotive wiring, network cabling (RJ45 connectors), and industrial control panels.</li>
@@ -510,7 +523,7 @@
         <li><span class="label">Limitations:</span> needs the correct connector size and crimping die; a poor crimp can loosen over time.</li>
       </ul>
 
-      <h4 class="subhead">3. Wire Nuts (Twist-on Connectors)</h4>
+      <h4 class="subhead">3. Wire Nuts (Twist-on Connectors)</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Array_of_twist-on_wire_connectors_aka_wire_nuts_in_different_sizes.jpg" alt="Twist-on wire connectors (wire nuts)" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li>Plastic caps with an internal spring that twist onto two or more stripped wire ends to join them.</li>
         <li>Widely used in residential and commercial electrical wiring, such as junction boxes.</li>
@@ -518,7 +531,7 @@
         <li><span class="label">Limitations:</span> not suitable for high-vibration environments; must be sized correctly for the wire gauge and count.</li>
       </ul>
 
-      <h4 class="subhead">4. Terminal Blocks</h4>
+      <h4 class="subhead">4. Terminal Blocks</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Terminal_Blocks_01CJC.png" alt="Terminal block" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li>Modular blocks with screw or spring-clamp connections that let multiple wires connect in a fixed, organized position.</li>
         <li>Common in control panels, power distribution boards, and equipment enclosures.</li>
@@ -587,7 +600,7 @@
 
       <h3>Testing Common Components</h3>
 
-      <h4 class="subhead">1. Resistors</h4>
+      <h4 class="subhead">1. Resistors</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20mountain%20of%20resistors.jpg" alt="Pile of axial lead resistors with color bands" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li><b>Function:</b> limits or controls the flow of electric current in a circuit.</li>
         <li><span class="label">How to test:</span> set the multimeter to resistance (Ω) mode, remove the resistor from the circuit (or at least one leg), and place the probes across its leads.</li>
@@ -595,7 +608,7 @@
         <li><span class="label">Faulty:</span> reading is infinite (open/burned out) or far from the rated value.</li>
       </ul>
 
-      <h4 class="subhead">2. Capacitors</h4>
+      <h4 class="subhead">2. Capacitors</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Selection_of_capacitors.jpg" alt="Assorted capacitors" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li><b>Function:</b> stores and releases electrical energy; smooths voltage in power supplies.</li>
         <li><span class="label">How to test:</span> discharge the capacitor first, then use capacitance mode if available, or resistance mode to observe charging behavior.</li>
@@ -603,7 +616,7 @@
         <li><span class="label">Faulty:</span> zero ohms (shorted), infinite with no charging (open), or a bulging/leaking case.</li>
       </ul>
 
-      <h4 class="subhead">3. Diodes</h4>
+      <h4 class="subhead">3. Diodes</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Diode_1n4001.jpg" alt="1N4001 diode" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li><b>Function:</b> allows current to flow in only one direction.</li>
         <li><span class="label">How to test:</span> use diode-test mode; red probe on the anode, black on the cathode, then reverse the probes.</li>
@@ -611,7 +624,7 @@
         <li><span class="label">Faulty:</span> a reading in both directions (shorted), or no reading in either direction (open).</li>
       </ul>
 
-      <h4 class="subhead">4. Transistors</h4>
+      <h4 class="subhead">4. Transistors</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Transistor_-_1.jpg" alt="TO-92 transistor" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li><b>Function:</b> acts as a switch or amplifier for electronic signals.</li>
         <li><span class="label">How to test:</span> in diode-test mode, check the base-emitter and base-collector junctions like two back-to-back diodes.</li>
@@ -619,7 +632,7 @@
         <li><span class="label">Faulty:</span> a junction reads shorted (zero both ways) or open (no reading either way).</li>
       </ul>
 
-      <h4 class="subhead">5. Fuses</h4>
+      <h4 class="subhead">5. Fuses</h4><figure class="tool-photo"><img src="https://commons.wikimedia.org/wiki/Special:FilePath/Different_Types_of_5x20_Fuses.jpg" alt="Glass cartridge fuses" loading="lazy"><figcaption>Photo: Wikimedia Commons</figcaption></figure>
       <ul class="tool-list">
         <li><b>Function:</b> protects a circuit by breaking the connection when current exceeds a safe level.</li>
         <li><span class="label">How to test:</span> continuity or resistance mode, probes on each end of the fuse.</li>
